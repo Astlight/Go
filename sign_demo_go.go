@@ -16,12 +16,12 @@ import (
 	"sort"
 )
 
-func sign_bytes(originalData string, keyPath string) string {
+func sign_bytes(sortedDataMap string, keyPath string) string {
 	privateKey, _ := ioutil.ReadFile(keyPath)
 	block, _ := pem.Decode(privateKey)
 	prvKey, _ := x509.ParsePKCS1PrivateKey(block.Bytes)
 	hash := sha1.New()
-	hash.Write([]byte(originalData))
+	hash.Write([]byte(sortedDataMap))
 	sign, _ := rsa.SignPKCS1v15(rand.Reader, prvKey, crypto.SHA1, hash.Sum(nil))
 	encodeString := base64.StdEncoding.EncodeToString(sign)
 	return encodeString
