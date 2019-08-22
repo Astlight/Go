@@ -153,10 +153,86 @@ fmt.Printf("%c\n", 'A'+32)      //a
 str := "abc"
 ~~~
 
+### 结构体
+
+~~~go
+type struct_variable_type struct { // 内容可以是不同类型
+   member definition;
+   member definition;
+   ...
+   member definition;
+}
+// 一旦定义了结构体类型，它就能用于变量的声明，语法格式如下：
+
+variable_name := structure_variable_type {value1, value2...valuen}
+或
+variable_name := structure_variable_type { key1: value1, key2: value2..., keyn: valuen}
+// 实例
+package main
+
+import "fmt"
+
+type Books struct {
+   title string
+   author string
+   subject string
+   book_id int
+}
+
+
+func main() {
+
+    // 创建一个新的结构体
+    fmt.Println(Books{"Go 语言", "www.runoob.com", "Go 语言教程", 6495407})
+
+    // 也可以使用 key => value 格式
+    fmt.Println(Books{title: "Go 语言", author: "www.runoob.com", subject: "Go 语言教程", book_id: 6495407})
+
+    // 忽略的字段为 0 或 空
+   fmt.Println(Books{title: "Go 语言", author: "www.runoob.com"})
+    
+    var Book1 Books        /* 声明 Book1 为 Books 类型 */
+
+   /* book 1 描述 */
+   Book1.title = "Go 语言"
+   Book1.author = "www.runoob.com"
+   Book1.subject = "Go 语言教程"
+   Book1.book_id = 6495407
+   printBook(Book1)
+}
+
+func printBook( book Books ) {
+   fmt.Printf( "Book title : %s\n", book.title);
+   fmt.Printf( "Book author : %s\n", book.author);
+   fmt.Printf( "Book subject : %s\n", book.subject);
+   fmt.Printf( "Book book_id : %d\n", book.book_id);
+}
+~~~
+
+### 切片
+
+~~~go
+var identifier []type //  切数组
+// 切片不需要说明长度。
+// 或使用make()函数来创建切片:
+var slice1 []type = make([]type, len)
+// 也可以简写为
+slice1 := make([]type, len)
+// 也可以指定容量，其中capacity为可选参数。
+make([]T, length, capacity)
+// 这里 len 是数组的长度并且也是切片的初始长度。
+
+s :=[] int {1,2,3 } 
+s :=make([]int,len,cap) 
+// len=实际长度， cap=总容量
+~~~
+
+
+
 ### 数组
 
 ~~~go
-	var arr1 [10]int
+	var arr1 [10]int // 内容必须为同一类型
 	arr1[0] = 0
 	arr1[1] = 1
 
@@ -290,6 +366,9 @@ func main() {
 ### 函数
 
 ```go
+func function_name( [parameter list] ) [return_types] {
+   函数体
+}
 func add(a int, b int) {
 	sum := a + b
 	fmt.Println(sum) // >>> 3
@@ -385,6 +464,16 @@ func main(){
     demo(5)
 }
 ~~~
+
+### 错误处理
+
+~~~go
+
+~~~
+
+
+
+
 
 ### 工程目录管理
 
