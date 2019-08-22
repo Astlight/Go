@@ -34,11 +34,11 @@ func main() {
 	dataMap["bank_code"] = "900000001"
 	dataMap["tied_card_type"] = "1000"
 	dataMap["amount"] = "10000"
-	dataMap["payer_id_card"] = "310109198210181535"
-	dataMap["bank_mobile"] = "18117321018"
+	dataMap["payer_id_card"] = ""
+	dataMap["bank_mobile"] = ""
 	dataMap["sign_order_no"] = "AP2I111018212312121259000"
-	dataMap["payer_bank_card_no"] = "6217560800023362683"
-	dataMap["payer_name"] = "陈怡海"
+	dataMap["payer_bank_card_no"] = ""
+	dataMap["payer_name"] = ""
 	dataMap["version"] = "1.0"
 	fmt.Println(dataMap)
 	var keys []string
